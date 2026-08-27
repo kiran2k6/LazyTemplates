@@ -32,6 +32,11 @@
   stack(
     dir: ttb,
     spacing: 15pt,
+    image(
+      "/logo.webp",
+      fit: "contain",
+      width: 30mm
+    ),
     text(
       weight: "bold",
       size: 24pt

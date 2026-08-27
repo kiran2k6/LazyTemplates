@@ -9,6 +9,7 @@ import { loadFonts } from '@myriaddreamin/typst.ts/dist/esm/options.init'
 import SOURCE from '@/template.typ?raw'
 import PLEX_REGULAR from '@/fonts/regular.ttf?url'
 import PLEX_BOLD from '@/fonts/bold.ttf?url'
+import LOGO from '@/logo.webp?url'
 import type InputForm from '@/types'
 
 const renderTarget = ref<HTMLElement | null>(null)
@@ -47,6 +48,12 @@ async function download() {
   URL.revokeObjectURL(url)
 }
 
+async function importAssets() {
+  const logoResponse = await fetch(LOGO)
+  const logoData = new Uint8Array(await logoResponse.arrayBuffer())
+  await $typst.mapShadow('/logo.webp', logoData)
+}
+
 async function render() {
   try {
     const output = await $typst.svg(getInput())
@@ -73,11 +80,11 @@ onMounted(async () => {
     getModule: () => compilerWasm,
     beforeBuild: [loadFonts([PLEX_REGULAR, PLEX_BOLD])],
   })
-
   $typst.setRendererInitOptions({
     getModule: () => rendererWasm,
   })
-  render()
+  await importAssets()
+  await render()
 })
 </script>
 
