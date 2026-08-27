@@ -17,14 +17,14 @@
       stroke: 1mm + black,
       width: 100%,
       height: 100%,
-      radius: 1mm
-    )
+      radius: 1mm,
+    ),
   ),
-  margin: 15mm
+  margin: 15mm,
 )
 #set text(
   font: "IBM Plex Sans",
-  size: 14pt
+  size: 14pt,
 )
 
 #align(
@@ -35,23 +35,27 @@
     image(
       "/logo.webp",
       fit: "contain",
-      width: 30mm
+      width: 30mm,
     ),
     text(
       weight: "bold",
-      size: 24pt
+      size: 24pt,
     )[
       EAST WEST SCHOOL OF BUSINESS MANAGEMENT
     ],
-    text(
-      weight: "bold",
-      size: 20pt,
-      subject
+    upper(
+      text(
+        weight: "bold",
+        size: 20pt,
+        subject,
+      ),
     ),
-    text(
-      weight: "bold",
-      size: 18pt,
-      title
+    upper(
+      text(
+        weight: "bold",
+        size: 18pt,
+        title,
+      ),
     ),
     v(1fr),
     align(
@@ -62,8 +66,8 @@
         [By: *#name*,],
         [#id,],
         [#semester,],
-        [Bachelor of Computer Applications,]
-      )
+        [Bachelor of Computer Applications,],
+      ),
     ),
     rect(
       width: 100%,
@@ -79,28 +83,29 @@
         left,
         text(
           size: 16pt,
-          weight: "bold"
+          weight: "bold",
         )[
           Principal
-        ]
+        ],
       ),
       align(
         right,
         text(
           size: 16pt,
-          weight: "bold"
+          weight: "bold",
         )[
           HOD
-        ]
+        ],
       ),
+
       align(
         left,
-        principal
+        principal,
       ),
       align(
         right,
-        professor
-      )
-    )
-  )
+        professor,
+      ),
+    ),
+  ),
 )
